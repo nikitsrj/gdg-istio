@@ -1,0 +1,20 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: nova-dep-v2
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nova
+  template:
+    metadata:
+      labels:
+        app: nova
+        version: v2
+    spec:
+      containers:
+      - name: nova
+        image: nginxdemos/hello:plain-text
+        ports:
+        - containerPort: 80
