@@ -2,4 +2,4 @@
 
 # GDG-Istio
 
-This repository is for demo purpose on Istio at GDG Singapore 2018
+This repository contains all the necessary templates and YAML files to perform operations related to Istio
