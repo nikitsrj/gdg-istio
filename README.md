@@ -2,7 +2,7 @@
 
 # Istio
 
-This repository contains all the necessary templates and YAML files to perform operations related to Istio. It covers different aspects of Istio means Traffic Management, Security, Tracebility. 
+This repository contains all the necessary templates and YAML files to perform operations related to Istio. It covers different aspects of Istio like Traffic Management, Security, Tracebility. 
 
 To **Get Started** click the button below:
 
