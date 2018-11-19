@@ -32,7 +32,7 @@ kubectl create -f nova-svc.yaml
 ```
 kubectl create -f nova-gateway.yaml
 ```
-4. Now we have to map the Kubernetes Service with the Gateway using a `VirtualService`.
+4. Post that we have to map the Kubernetes Service with the Gateway using a `VirtualService`.
 ```
 kubectl create -f nova-virtualService.yaml
 ```
