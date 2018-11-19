@@ -36,3 +36,12 @@ gcloud container clusters create istio-demo \
     --num-nodes=4 \
     --no-enable-legacy-authorization
 ```
+2. Once you have the required cluster, grant cluster admin permissions to the current user. You need these permissions to create the necessary role based access control (RBAC) rules for Istio
+```
+kubectl create clusterrolebinding cluster-admin-binding \
+  --clusterrole=cluster-admin \
+  --user="$(gcloud config get-value core/account)"
+```
+
+[![Next: Install Istion](https://github.com/nikitsrj/gdg-istio/blob/master/readme/setupgke.png)]
+
