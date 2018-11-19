@@ -24,6 +24,15 @@ sudo cp bin/istioctl /usr/local/bin
 ```
 kubectl apply -f install/kubernetes/istio-demo-auth.yaml
 ```
+4. Once it's done then verify the istio installation
+```
+kubectl get pods -n istio-system
+kubectl get svc -n istio-system
+```
 
+### Enable sidecar injection
+When we configure and run the services, Envoy sidecars can be automatically injected into each pod for the service. For that to work, we need to enable sidecar injection for the namespace (‘default’) that we will use for our microservices. We do that by applying a label
 
-
+```
+kubectl label namespace default istio-injection=enabled
+```
