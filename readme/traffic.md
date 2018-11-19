@@ -36,4 +36,109 @@ kubectl create -f nova-gateway.yaml
 ```
 kubectl create -f nova-virtualService.yaml
 ```
+5. Now test `v1` of the application by hitting the `EXTERNAL-IP` in the browser (or Postman), that we will recieve by entering below command in cloud shell
+```
+kubectl get svc istio-ingressgateway -n istio-system
+```
+
+#### Deploying multiple version of the same service 
+
+If you want to update your app to a new version. Maybe you want to split the traffic between two versions. You need to create a DestinationRule to define those versions, called subsets in Istio. 
+
+Deploy the second version of the application.
+```
+kubectl create -f nova-v2.yaml
+```
+If you refresh the browser with the `EXTERNAL-IP` , you’ll see that VirtualService rotates through `v1` and `v2` versions of the app. This is expected because both versions are exposed behind the same Kubernetes service: `nova-svc`.
+
+### Access a specific version of a service
+If you want to pin your service to only v2, so this can be done by specifying a subset in the `VirtualService` but we need to define those subsets first in a `DestinationRules`. A DestinationRule essentially maps labels to Istio subsets.
+
+1. Create the destination Rule.
+```
+kubectl create -f nova-destinationRule.yaml
+```
+2. Now you can modify the VirtualService file to point to v2 of the application. So it will look like this.
+```
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: nova-virtualservice
+spec:
+  hosts:
+  - "*"
+  gateways:
+  - nova-gateway
+  http:
+  - route:
+    - destination:
+        host: nova-svc
+        subset: v2
+```
+3. Update the VirtualService
+```
+kubectl apply -f nova-virtualService.yaml 
+```
+
+### Path Based Routing
+
+If you need something like path based routing then also me need to prefix in match uri section of VirtualService file like below.
+
+```
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: nova-virtualservice
+spec:
+  hosts:
+  - "*"
+  gateways:
+  - nova-gateway
+  http:
+  - match:
+    - uri:
+        prefix: /nova
+    route:
+    - destination:
+        host: nova-svc
+        subset: v1
+  ```
+  Now update the virtualService
+  ```
+  kubectl create -f nova-virtualService.yaml
+  ```
+  Now open the browser (or Postman) and hit the  `EXTERNAL-IP/nova` , you will get the page of v1 of the application.
+  
+  ### Weight Based Routing (Canary Deployment)
+  
+  In case you need canary deployment of the application and want the traffic ratio of 80% in v1 of the app and 20% in v2 of the app, then we have to do the below changes.
+```
+   apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: nova-virtualservice
+spec:
+  hosts:
+  - "*"
+  gateways:
+  - nova-gateway
+  http:
+  - route:
+    - destination:
+        host: nova-svc
+        subset: v1
+      weight: 80
+    - destination:
+        host: nova-svc
+        subset: v2
+      weight: 20
+ ```
+ Now update the virtualService
+  ```
+  kubectl create -f nova-virtualService.yaml
+  ```
+ Now open the browser (or Postman) and hit the  `EXTERNAL-IP`, most of the time you will be redirected to v1 of the app and sometimes v2.
+ 
+  
+  
 
