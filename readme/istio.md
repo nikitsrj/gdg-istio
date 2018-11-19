@@ -36,3 +36,5 @@ When we configure and run the services, Envoy sidecars can be automatically inje
 ```
 kubectl label namespace default istio-injection=enabled
 ```
+
+[![Next: Traffic Management](https://github.com/nikitsrj/gdg-istio/blob/master/readme/nexttraffic.png)](./traffic.md)
