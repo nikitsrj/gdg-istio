@@ -43,5 +43,5 @@ kubectl create clusterrolebinding cluster-admin-binding \
   --user="$(gcloud config get-value core/account)"
 ```
 
-[![Next: Install Istion](https://github.com/nikitsrj/gdg-istio/blob/master/readme/setupgke.png)]
+[![Next: Install Istio](https://github.com/nikitsrj/gdg-istio/blob/master/readme/nextistio.png)]
 
