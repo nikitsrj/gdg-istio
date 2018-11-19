@@ -14,3 +14,25 @@ Take the following steps to enable the Kubernetes Engine API:
 2. Create or select a project.
 3. Wait for the API and related services to be enabled. This can take several minutes.
 4. Make sure that billing is enabled for your project.
+
+### Fireup CloudShell and configure it
+Once the project creation completed then open Cloudshell, which have some preinstalled packages like docker, git, gcloud, and perform below operation.
+
+1. Install Kubectl into the cloudshell
+```
+gcloud components install kubectl
+```
+2. Setup defaults config for gcloud
+```
+gcloud config set project [PROJECT_ID]
+gcloud config set compute/zone us-central1-b
+```
+### Create a cluster
+1. To create a cluster for this demo, run the following command - let's call the demo cluster (It will take 3-4min to create the cluster)
+
+```
+gcloud container clusters create istio-demo \
+    --machine-type=n1-standard-1 \
+    --num-nodes=4 \
+    --no-enable-legacy-authorization
+```
