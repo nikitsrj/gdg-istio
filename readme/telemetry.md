@@ -23,3 +23,4 @@ kubectl port-forward --namespace istio-system $(kubectl get pod --namespace isti
 
 Post that click on `web preview` of cloud shell and change the port to 8084 and Preview it. You will get to see the dashboard like below.
 <img src="https://github.com/nikitsrj/gdg-istio/blob/master/readme/Screenshot%202018-11-20%20at%205.55.06%20PM.png"/>
+<img src="https://github.com/nikitsrj/gdg-istio/blob/master/readme/Screenshot%202018-11-20%20at%205.58.27%20PM.png"/>
