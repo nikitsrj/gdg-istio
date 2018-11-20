@@ -21,6 +21,16 @@ We can collect trace spans of istio-enabled applications via Jaeger UI. By defau
 kubectl port-forward --namespace istio-system $(kubectl get pod --namespace istio-system --selector="app=jaeger" --output jsonpath='{.items[0].metadata.name}') 8084:16686
 ```
 
-Post that click on `web preview` of cloud shell and change the port to 8084 and Preview it. You will get to see the dashboard like below.
+Post that click on `web preview` of cloud shell and change the port to `8084` and Preview it. You will get to see the dashboard like below.
 <img src="https://github.com/nikitsrj/gdg-istio/blob/master/readme/Screenshot%202018-11-20%20at%205.55.06%20PM.png"/>
 <img src="https://github.com/nikitsrj/gdg-istio/blob/master/readme/Screenshot%202018-11-20%20at%205.58.27%20PM.png"/>
+
+### Visualizing Metrics with Grafana
+
+We can view the grafan dashboard by entering below command.
+```
+kubectl port-forward --namespace istio-system $(kubectl get pod --namespace istio-system --selector="app=grafana" --output jsonpath='{.items[0].metadata.name}') 8081:3000
+```
+Post that click on `web preview` of cloud shell and change the port to `8081` and Preview it. You will get to see the dashboard like below.
+
+<img src=""/>
