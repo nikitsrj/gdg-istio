@@ -17,6 +17,8 @@ kind: "Policy"
 metadata:
   name: "nova-auth-policy"
 spec:
+  peers:
+  - mtls: {}
   targets:
   - name: nova-svc
   origins:
