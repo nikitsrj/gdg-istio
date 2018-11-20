@@ -42,3 +42,5 @@ But if you pass the bearer token then you will get `200`
 TOKEN=$(curl https://raw.githubusercontent.com/istio/istio/release-1.0/security/tools/jwt/samples/demo.jwt -s)
 curl --header "Authorization: Bearer $TOKEN" http://EXTERNAL-IP -s -o /dev/null -w "%{http_code}\n"
 ```
+
+[![Next: Telemetry](https://github.com/nikitsrj/gdg-istio/blob/master/readme/nexttelemetry.png)](./telemetry.md)
