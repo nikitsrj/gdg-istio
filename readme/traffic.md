@@ -139,7 +139,7 @@ spec:
   ```
  Now open the browser (or Postman) and hit the  `EXTERNAL-IP`, most of the time you will be redirected to v1 of the app and sometimes v2.
 
-[![Next: Security(Authentication)](https://github.com/nikitsrj/gdg-istio/blob/master/readme/nextistio.png)](./security.md)
+[![Next: Security(Authentication)](https://github.com/nikitsrj/gdg-istio/blob/master/readme/nextsecurity.png)](./security.md)
   
   
 
