@@ -11,7 +11,6 @@ This section of demo contains below things.
 2. Visualizing Metrics with Grafana
 3. Querying Metrics from Prometheus
 4. Generating a Service Graph
-5. Logging with Fluentd and visualizing via Kibana
 
 ### Distributed Tracing via Jaeger UI
 
@@ -33,4 +32,28 @@ kubectl port-forward --namespace istio-system $(kubectl get pod --namespace isti
 ```
 Post that click on `web preview` of cloud shell and change the port to `8081` and Preview it. You will get to see the dashboard like below.
 
-<img src=""/>
+<img src="https://github.com/nikitsrj/gdg-istio/blob/master/readme/Screenshot%202018-11-20%20at%206.04.48%20PM.png"/>
+
+### Querying Metrics from Prometheus
+
+We can query istio metrics from Prometheus web UI. To access the Prometheus UI, enter below command in cloud shell.
+```
+kubectl port-forward --namespace istio-system $(kubectl get pod --namespace istio-system --selector="app=prometheus" --output jsonpath='{.items[0].metadata.name}') 8082:9090
+``` 
+Post that click on `web preview` of cloud shell and change the port to `8082` and Preview it. You will get to see the dashboard like below.
+
+<img src="https://github.com/nikitsrj/gdg-istio/blob/master/readme/Screenshot%202018-11-20%20at%206.12.53%20PM.png"/>
+
+### Generating a Service Graph
+This is a very cool feature of Istio. It can generate a graph of services within an Istio mesh. To generate a graph we need to take help of local machine console and get kube config of your kuberenetes and then hit the below command.
+
+```
+gcloud container clusters get-credentials istio-demo --zone us-central1-b --project PROJECT-ID \
+ && kubectl port-forward --namespace istio-system $(kubectl get pod --namespace istio-system --selector="app=servicegraph" --output jsonpath='{.items[0].metadata.name}') 8083:8088
+ ```
+ 
+ Go to your brower and hit 
+ ```
+ http://localhost:8083/dotviz
+ ```
+ <img src="https://github.com/nikitsrj/gdg-istio/blob/master/readme/Screenshot%202018-11-20%20at%206.38.08%20PM.png"/>
