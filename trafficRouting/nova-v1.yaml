@@ -12,6 +12,6 @@ spec:
     spec:
       containers:
       - name: nova
-        image: nginxdemos/hello
+        image: nicksrj/nova
         ports:
         - containerPort: 80
