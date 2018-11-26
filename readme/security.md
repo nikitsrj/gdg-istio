@@ -6,7 +6,7 @@
 
 ## Security
 
-This section of demo have example of `End-User Authentication`. To experiment with this feature, you need a valid JWT. The JWT must correspond to the JWKS endpoint you want to use for the demo. In this tutorial, we use this JWT test and this JWKS endpoint from the Istio code base.
+This section of demo have example of `End-User Authentication`. To experiment with this feature, you need a valid JWT. The JWT must correspond to the JWKS endpoint you want to use for the demo. In this tutorial, we use this [JWT](https://raw.githubusercontent.com/istio/istio/release-1.0/security/tools/jwt/samples/demo.jwt) test and this [JWKS](https://raw.githubusercontent.com/istio/istio/release-1.0/security/tools/jwt/samples/jwks.json) endpoint from the Istio code base.
 
 We will be using same Nova Application to test the authentication feature. Right now our application is working completely fine and anyone can access it without any authentication. To enforce the authentication we have to write a policy and attach the `nova-svc` as its target, so that the policy should get enforced whenever anyone tries to access the `nova-svc`.
 
