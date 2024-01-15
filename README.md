@@ -6,7 +6,7 @@ This repository contains all the necessary templates and YAML files to perform o
 
 To **Get Started** click the button below:
 
-[![Get Started]("https://www.pngkit.com/png/detail/329-3295480_get-started-managing-your-savings-get-started-button.png")
+[![Get Started](https://freepngimg.com/download/get_started_now_button/25427-5-get-started-now-button-image.png)](./readme/agenda.md)
 
 
 ## Additional Resources
