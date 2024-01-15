@@ -6,7 +6,7 @@ This repository contains all the necessary templates and YAML files to perform o
 
 To **Get Started** click the button below:
 
-[![Get Started]("https://www.pngkit.com/png/detail/329-3295480_get-started-managing-your-savings-get-started-button.png" alt="Get Started Managing Your Savings - Get Started Button Blue@pngkit.com")
+[![Get Started]("https://www.pngkit.com/png/detail/329-3295480_get-started-managing-your-savings-get-started-button.png")
 
 
 ## Additional Resources
